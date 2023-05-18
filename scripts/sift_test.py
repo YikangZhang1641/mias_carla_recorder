@@ -1,9 +1,14 @@
 import numpy as np
 import cv2
+import os
 from matplotlib import pyplot as plt
 
-imgname1 = '/home/mias/Datasets/carla_pothole2/2023_04_20 18:07:03/rgb_front_left/485_765805691.jpeg'
-imgname2 = '/home/mias/Datasets/carla_pothole2/2023_04_20 18:07:03/rgb_front_right/485_765805691.jpeg'
+imgname1 = '../sample_data/left.png'
+imgname2 = '../sample_data/right.png'
+
+if not os.path.exists(imgname1) or not os.path.exists(imgname2):
+    print("image not exist")
+
 #实例化的sift函数
 sift = cv2.xfeatures2d.SIFT_create()
 

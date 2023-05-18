@@ -26,7 +26,7 @@ BASELINES = ["05"]
 
 # ROLLS = ["45", "30", "15", "0", "-15", "-30", "-45"]
 
-with open("/home/mias/Projects/carla-ros-bridge/catkin_ws/src/ros-bridge/carla_spawn_objects/config/objects.json") as f:
+with open("src/mias_carla_recorder/config/default.json") as f:
     data = json.load(f)
 _r = int(data["objects"][-1]['sensors'][2]['spawn_point']['roll'])
 roll = str(abs(_r)).zfill(2)
@@ -54,7 +54,7 @@ def get_item_by_id(data, id):
     return None
 
 def check_assert(baseline):
-    with open("/home/mias/Projects/carla-ros-bridge/catkin_ws/src/ros-bridge/carla_spawn_objects/config/objects.json") as f:
+    with open("src/mias_carla_recorder/config/default.json") as f:
         data = json.load(f)
 
     sensors = get_item_by_id(data["objects"], "ego_vehicle")["sensors"]

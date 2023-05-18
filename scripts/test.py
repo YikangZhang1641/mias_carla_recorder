@@ -1,4 +1,5 @@
 import cv2
+import os
 import numpy as np
 from matplotlib import pyplot as plt
 
@@ -8,8 +9,14 @@ import time
 
 path = "/home/mias/Datasets/carla_pothole"
 
-img = cv2.imread('../rgb.png')
-arr = cv2.imread('../depth.png')
+p_rgb = "../sample_data/rgb.png"
+p_dpt = '../sample_data/depth.png'
+
+if not os.path.exists(p_rgb) or not os.path.exists(p_dpt):
+    print("image not exist")
+
+img = cv2.imread(p_rgb)
+arr = cv2.imread(p_dpt)
 
 scales = np.array([65536.0, 256, 1]) / (256**3 - 1) * 1000
 depth_image = np.dot(arr, scales).astype(np.float32)
